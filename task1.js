@@ -32,30 +32,32 @@ const xmlString = `<list>
 const xmlDOM = parser.parseFromString(xmlString, 'text/xml');
 const firstNames = xmlDOM.querySelectorAll('student first');
 const secondNames = xmlDOM.querySelectorAll('student second');
-
+const ageTag = xmlDOM.querySelectorAll('age');
 
 const textFirstNames = [];
 const textSecondNames = [];
 const fullNames = [];
-
-firstNames.forEach(element => {
-    let textName = element.textContent;
-    textFirstNames.push(textName);
-});
-
-secondNames.forEach(element => {
-    let textName = element.textContent;
-    textSecondNames.push(textName);
-});
+const age = [];
 
 textFirstNames.map((element, i) => {
     let name = element + " " + textSecondNames[i];
     fullNames.push(name);
 })
 
+makeDataArray(ageTag, age);
+makeDataArray(firstNames, textFirstNames);
+makeDataArray(secondNames, textSecondNames);
 
-console.log(fullNames);
-
+let dataArray = [];
+// пройтись циклом, чтобы динамически создавать объект с данными и вкладывать его в массив
+// name: fullNames[i], age: age[i], 
 const result = {
-    list: []
+    list: dataArray
+}; 
+
+function makeDataArray (arrayBefore, arrayAfter) {
+    arrayBefore.forEach(element => {
+        let ageNumber = +element.textContent;
+        arrayAfter.push(ageNumber);
+    });
 }
