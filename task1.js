@@ -8,7 +8,8 @@
 //     ]
 //   }
 
-const parser = new DOMParser();
+function parseXMLToObject() {
+    const parser = new DOMParser();
 
 const xmlString = `<list>
 <student>
@@ -61,3 +62,6 @@ function makeDataArray (arrayBefore, arrayAfter) {
         arrayAfter.push(ageNumber);
     });
 }
+}
+
+parseXMLToObject();
