@@ -71,8 +71,6 @@ function parseXMLToObject(xml) {
         list: dataArray
     }; 
 
-    console.log(result);
-
     function makeDataArray (arrayBefore, arrayAfter) {
         arrayBefore.forEach(element => {
             let elem = element.textContent;
@@ -86,6 +84,8 @@ function parseXMLToObject(xml) {
             arrayAfter.push(elem);
         });
     }
+    return result;
 }
 
-parseXMLToObject(xmlString);
+
+console.log(parseXMLToObject(xmlString));
