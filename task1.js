@@ -8,60 +8,86 @@
 //     ]
 //   }
 
-function parseXMLToObject() {
-    const parser = new DOMParser();
+const parser = new DOMParser();
 
 const xmlString = `<list>
 <student>
-  <name lang="en">
+<name lang="en">
     <first>Ivan</first>
     <second>Ivanov</second>
-  </name>
-  <age>35</age>
-  <prof>teacher</prof>
+</name>
+<age>35</age>
+<prof>teacher</prof>
 </student>
 <student>
-  <name lang="ru">
+<name lang="ru">
     <first>Петр</first>
     <second>Петров</second>
-  </name>
-  <age>58</age>
-  <prof>driver</prof>
+</name>
+<age>58</age>
+<prof>driver</prof>
 </student>
 </list>`;
 
-const xmlDOM = parser.parseFromString(xmlString, 'text/xml');
-const firstNames = xmlDOM.querySelectorAll('student first');
-const secondNames = xmlDOM.querySelectorAll('student second');
-const ageTag = xmlDOM.querySelectorAll('age');
+function parseXMLToObject(xml) {
 
-const textFirstNames = [];
-const textSecondNames = [];
-const fullNames = [];
-const age = [];
+    const xmlDOM = parser.parseFromString(xmlString, 'text/xml');
+    const firstNames = xmlDOM.querySelectorAll('student first');
+    const secondNames = xmlDOM.querySelectorAll('student second');
+    const ageTag = xmlDOM.querySelectorAll('age');
+    const professionTag = xmlDOM.querySelectorAll('prof');
+    const name = xmlDOM.querySelectorAll('name');
 
-textFirstNames.map((element, i) => {
-    let name = element + " " + textSecondNames[i];
-    fullNames.push(name);
-})
+    const textFirstNames = [];
+    const textSecondNames = [];
+    const fullNames = [];
+    const age = [];
+    const profession = [];
+    const language = [];
 
-makeDataArray(ageTag, age);
-makeDataArray(firstNames, textFirstNames);
-makeDataArray(secondNames, textSecondNames);
+    name.forEach(element => {
+        const attribute = element.getAttribute;
+        language.push(attribute);
+    })
 
-let dataArray = [];
-// пройтись циклом, чтобы динамически создавать объект с данными и вкладывать его в массив
-// name: fullNames[i], age: age[i], 
-const result = {
-    list: dataArray
-}; 
+    makeDataArrayNumbers(ageTag, age);
+    makeDataArray(firstNames, textFirstNames);
+    makeDataArray(secondNames, textSecondNames);
+    makeDataArray(professionTag, profession);
 
-function makeDataArray (arrayBefore, arrayAfter) {
-    arrayBefore.forEach(element => {
-        let ageNumber = +element.textContent;
-        arrayAfter.push(ageNumber);
-    });
+    textFirstNames.map((element, i) => {
+        let name = element + " " + textSecondNames[i];
+        fullNames.push(name);
+    })
+
+    let dataArray = [];
+    // пройтись циклом, чтобы динамически создавать объект с данными и вкладывать его в массив
+    // name: fullNames[i], age: age[i], 
+
+    for (let i = 0; i < name.length; i++) {
+            let objData = {name: fullNames[i], age: age[i], prof: profession[i], lang: language[i]};
+            dataArray.push(objData);
+    }
+
+    const result = {
+        list: dataArray
+    }; 
+
+    console.log(result);
+
+    function makeDataArray (arrayBefore, arrayAfter) {
+        arrayBefore.forEach(element => {
+            let elem = element.textContent;
+            arrayAfter.push(elem);
+        });
+    }
+
+    function makeDataArrayNumbers (arrayBefore, arrayAfter) {
+        arrayBefore.forEach(element => {
+            let elem = +element.textContent;
+            arrayAfter.push(elem);
+        });
+    }
 }
-}
 
-parseXMLToObject();
+parseXMLToObject(xmlString);
