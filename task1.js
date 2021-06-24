@@ -46,7 +46,7 @@ function parseXMLToObject(xml) {
     const language = [];
 
     name.forEach(element => {
-        const attribute = element.getAttribute;
+        const attribute = element.getAttribute('lang');
         language.push(attribute);
     })
 
@@ -61,8 +61,6 @@ function parseXMLToObject(xml) {
     })
 
     let dataArray = [];
-    // пройтись циклом, чтобы динамически создавать объект с данными и вкладывать его в массив
-    // name: fullNames[i], age: age[i], 
 
     for (let i = 0; i < name.length; i++) {
             let objData = {name: fullNames[i], age: age[i], prof: profession[i], lang: language[i]};
