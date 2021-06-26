@@ -87,5 +87,4 @@ function parseXMLToObject(xml) {
     return result;
 }
 
-
 console.log(parseXMLToObject(xmlString));
