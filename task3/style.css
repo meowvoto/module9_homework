@@ -23,3 +23,19 @@ button {
     color: rgb(245, 242, 237);
     font-size: 20px;
 }
+
+.text {
+    text-align: center;
+    color: tomato;
+}
+
+.picture {
+    margin: auto;
+    width: 300px;
+}
+
+.picture-image {
+    display: block;
+    width: 300px;
+    height: 200px;
+}
