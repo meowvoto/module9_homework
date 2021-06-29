@@ -39,7 +39,7 @@ function btnListener() {
     const value = input.value;
     console.log(typeof(value))
     if (value > 10 || value < 0) {
-        textDiv.innerHTML = 'число вне диапазона от 1 до 10 или не числовое значение';
+        textDiv.innerHTML = 'число вне диапазона от 1 до 10';
     } else {
         useRequest(showResult, `https://picsum.photos/v2/list?limit=${value}`);
     }
