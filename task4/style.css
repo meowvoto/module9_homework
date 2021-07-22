@@ -1,11 +1,23 @@
+body {
+    font-size: 14px;
+    font-family: 'Arimo', sans-serif;
+    color: slateblue;
+}
+
+
+.form {
+    margin: 10px auto;
+    width: 300px;
+    display: block;
+}
+
 input {
     margin: 10px auto;
     display: block;
-    width: 600px;
-    height: 200px;
-    font-size: 100px;
+    width: 300px;
+    height: 50px;
     text-align: center;
-    background: linear-gradient(45deg, rgb(224, 232, 242), rgb(227, 238, 255));
+    background: linear-gradient(45deg, #d299c2, #fef9d7);;
     box-shadow: 0px 0px 25px -13px white inset;
     border: none;
     color: white;
@@ -21,7 +33,6 @@ button {
     border: 1px solid white;
     box-shadow: 0px 0px 25px -13px white inset;
     color: rgb(245, 242, 237);
-    font-size: 20px;
 }
 
 .text {
@@ -29,13 +40,7 @@ button {
     color: tomato;
 }
 
-.picture {
-    margin: auto;
-    width: 300px;
-}
-
-.picture-image {
-    display: block;
-    width: 300px;
-    height: 200px;
+div {
+    width: max-content;
+    margin: 50px auto;
 }
