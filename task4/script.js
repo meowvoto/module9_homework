@@ -6,12 +6,10 @@
 
 const btn = document.querySelector('button');
 const div = document.querySelector('.div');
-const value = document.querySelector('input').value;
 
 btn.addEventListener('click', () => {
     const width = document.querySelector('#width').value;
     const height = document.querySelector('#height').value;
-    console.log(width, height)
     if (width < 100 || height < 100 || width > 300 || height > 300) {
         div.innerHTML = '«одно из чисел вне диапазона от 100 до 300»';
     } else {
