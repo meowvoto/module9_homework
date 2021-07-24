@@ -22,7 +22,7 @@ function sendRequest(p1, p2) {
     .then((response) => {return response.json()})
     .then(function(data) {
      data.forEach(item =>
-        div.innerHTML = `<img src="${item.url}" alt="">`
+        div.innerHTML = `<img src="${item.url}" alt="">`;
     )})
     .catch(() => console.log('Произошла ошибка'))
     }
