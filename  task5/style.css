@@ -5,8 +5,8 @@ body {
 }
 
 img {
-    width: 300px;
-    height: 300px;
+    max-width: 300px;
+    max-height: 200px;
 }
 
 .form {
@@ -45,7 +45,14 @@ button {
     color: rgb(245, 242, 237);
 }
 
+button:hover {
+    transform: scale(1.05);
+}
+
 div {
-    width: max-content;
+    width: 900px;
     margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
