@@ -44,8 +44,8 @@ function showResult(requestData) {
 
 function btnListener() {
     const value = input.value;
-    console.log(typeof(value))
-    if (value > 10 || value < 0) {
+    console.log(value)
+    if (value > 10 || value < 1) {
         textDiv.innerHTML = 'число вне диапазона от 1 до 10';
     } else {
         useRequest(showResult, `https://picsum.photos/v2/list?limit=${value}`);
